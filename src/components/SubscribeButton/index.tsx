@@ -1,7 +1,7 @@
 import { useSession, signIn } from 'next-auth/client';
 import { useRouter } from 'next/router';
-//import { api } from '../../services/api';
-//import { getStripeJs } from '../../services/stripe-js';
+import { api } from '../../services/api';
+import { getStripeJs } from '../../services/stripe-js';
 import styled from './styles.module.scss';
 
 interface SubscribeButtonProps {
@@ -23,7 +23,7 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
       return;
     }
     
-    /* ry {
+    try {
       const response = await api.post('/subscribe');
 
       const { sessionId } = response.data;
@@ -33,7 +33,7 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
       await stripe.redirectToCheckout({ sessionId });
     } catch(err) {
       alert(err.message);
-    } */
+    }
 
     // criação da checkout session
   }
