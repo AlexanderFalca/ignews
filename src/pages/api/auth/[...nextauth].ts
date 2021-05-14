@@ -13,7 +13,8 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
       scope: 'read:user'
     }),
-  ], callbacks: {
+  ],
+  callbacks: {
     async session(session) {
       try {
         const userActiveSubscription = await fauna.query(
